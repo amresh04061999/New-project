@@ -1,0 +1,30 @@
+{
+  "user": [
+    {
+      "firstname": "amresh",
+      "email": "amresh1098@gmail.com",
+      "phoneno": "a",
+      "usertype": "Studio",
+      "lastname": "prasad",
+      "password": "1234",
+      "state": "Daman",
+      "city": "Daman",
+      "profile_image": "C:\\fakepath\\Skinput_arm_buttons.jpg",
+      "agree": true,
+      "id": 1
+    },
+    {
+      "firstname": "zzz",
+      "email": "zzzz",
+      "phoneno": "zz",
+      "usertype": "Studio",
+      "lastname": "zzz",
+      "password": "sss",
+      "state": "Daman",
+      "city": "Gujarat",
+      "profile_image": "C:\\fakepath\\Skinput_arm_buttons.jpg",
+      "agree": true,
+      "id": 2
+    }
+  ]
+}
