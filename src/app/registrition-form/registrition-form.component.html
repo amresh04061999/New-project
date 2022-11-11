@@ -1,0 +1,135 @@
+<!-- <img src="../../../assets/images/Bg Image.jpg" width="100%" height="500px" class="mw-100 h-100"> -->
+<section class="ms-5">
+  <div class="bg-white ">
+    <form [formGroup]="userform">
+      <h1 class=" text-nowrap  my-5">Register your Account</h1>
+      <!-- first Row -->
+      <div class="row ">
+        <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-1  m-0">
+          <!-- firstname input -->
+          <div class="form-outline">
+            <label class="form-label" for="firstname">FirstName <span class="text-danger">*</span></label>
+            <input type="text" id="firstname" class="form-control form-control-lg" placeholder="Enter Your FirstName" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-1 m-0">
+          <!-- lastname input -->
+          <div class="form-outline">
+            <label class="form-label" for="lastname">LastName <span class="text-danger">*</span></label>
+            <input type="text" id="lastname" class="form-control form-control-lg" placeholder="Enter lastname" />
+          </div>
+        </div>
+      </div> <!-- second  Row -->
+      <div class="row ">
+        <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-1 m-0">
+          <!-- Email input -->
+          <div class="form-outline">
+            <label class="form-label" for="firstname">Email Address<span class="text-danger">*</span></label>
+            <input type="text" id="firstname" class="form-control form-control-lg"
+              placeholder="Enter Your Email Address" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-1 m-0">
+          <!-- Password input -->
+          <div class="form-outline">
+            <div class="position-relative">
+              <label class="form-label" for="password">Password<span class="text-danger">*</span> </label>
+              <span class="eye" class="bi bi-{{icon}}" (click)="onEyeClick()"></span>
+              <input type="{{type}}" id="password" class="form-control form-control-lg" placeholder="Enter password" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- third row  Row -->
+      <div class="row ">
+        <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-1 m-0">
+          <!-- Phone input -->
+          <div class="form-outline">
+            <label class="form-label" for="phoneNo">PhoneNo<span class="text-danger">*</span> </label>
+            <input type="text" id="phoneNo" class="form-control form-control-lg" placeholder="Enter phoneNo"
+              formControlName="Phone" />
+          </div>
+          <div class="my-3" *ngIf="validator['Phone'].invalid &&  (isSubmited || validator['Phone'].dirty ) ">
+            <span *ngIf="validator['Phone'].errors?.['required'] " class="text-danger">
+              This field is required
+            </span>
+            <span *ngIf="validator['Phone'].errors?.['pattern']" class="text-danger">
+              Please enter numeric value only
+            </span>
+            <span
+              *ngIf="(validator['Phone'].errors?.['minlength'] || validator['Phone'].errors?.['maxlength']) && !(validator['Phone'].errors?.['pattern'])"
+              class=" text-danger">
+              Phone Number must be 10 digits
+            </span>
+
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-1 m-0">
+          <div class="row">
+            <div class="col-lg-4 ">
+              <label class="form-label" for="city">Country <span class="text-danger">*</span> </label>
+              <select class="form-select">
+                <option selected>india</option>
+                <option value="Daman">Daman</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="UP">UP</option>
+              </select>
+            </div>
+
+            <div class="col-lg-4">
+              <label class="form-label" for="state">Select State<span class="text-danger">*</span>
+              </label>
+              <select class="form-select">
+                <option selected>--- State ---</option>
+                <option value="Daman">Daman</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="UP">UP</option>
+              </select>
+            </div>
+            <div class="col-lg-4 ">
+              <label class="form-label" for="city">Select City<span class="text-danger">*</span> </label>
+              <select class="form-select">
+                <option selected>--- City ---</option>
+                <option value="Daman">Daman</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="UP">UP</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- four  Row -->
+      <div class="row ">
+        <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-1 m-0 ">
+          <!-- select type  -->
+          <label class="form-label " for="password">Select User Type<span class="text-danger ">*</span> </label>
+          <select class="form-select " formControlName="UserTypeId" [(ngModel)]="userSelect">
+            <option selected>Select User Type</option>
+            <option *ngFor="let userType of userType " [value]="userType.id" [value]="userType.id">{{userType.name}}
+            </option>
+          </select>
+          <div class="my-3" *ngIf="validator['UserTypeId'].invalid &&  isSubmited ">
+            <div *ngIf="validator['UserTypeId'].errors?.['required']" class="text-danger">
+              This field is required
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-1 m-0">
+          <div class="form-outline mt-3">
+            <input type="file" class="form-control">
+          </div>
+        </div>
+      </div>
+      <!-- five  Row -->
+      <div class="row">
+        <div class="col-lg-12 ">
+          <button type="submit" class="btn btn-success  my-4" (click)="submit()">Submit</button>
+        </div>
+      </div>
+      Note:={{userSelect}}
+    </form>
+  </div>
+
+</section>
